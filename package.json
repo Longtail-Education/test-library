@@ -1,0 +1,46 @@
+{
+  "name": "@longtail-education/test-library",
+  "version": "0.0.1",
+  "author": "Longtail Education",
+  "description": "",
+  "scripts": {
+    "lint": "eslint --ext .js,.ts .",
+    "build": "npm run lint && tsc -d"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "dependencies": {
+    "firebase-admin": "^12.0.0"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.13.2",
+    "@typescript-eslint/parser": "^6.13.2",
+    "eslint": "^8.55.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-import-resolver-typescript": "^3.6.1",
+    "eslint-plugin-import": "^2.29.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  },
+  "main": "lib/index",
+  "types": "lib/index",
+  "files": [
+    "lib/",
+    "README.md",
+    "package.json"
+  ],
+  "exports": {
+    ".": "./lib/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Longtail-Education/test-library.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Longtail-Education/test-library/issues"
+  },
+  "homepage": "https://github.com/Longtail-Education/test-library#readme"
+}
