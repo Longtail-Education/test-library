@@ -4,7 +4,8 @@
   "author": "Longtail Education",
   "scripts": {
     "lint": "eslint --ext .js,.ts .",
-    "build": "npm run lint && tsc -d"
+    "build": "npm run lint && tsc -d",
+    "test": "exit 0"
   },
   "engines": {
     "node": "16"

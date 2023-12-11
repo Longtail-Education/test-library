@@ -19,5 +19,3 @@ node_modules/
 lib/
 
 .env
-
-.npmrc
