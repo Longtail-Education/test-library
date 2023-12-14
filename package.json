@@ -1,6 +1,6 @@
 {
   "name": "@longtail-education/test-library",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "author": "Longtail Education",
   "scripts": {
     "lint": "eslint --ext .js,.ts .",
