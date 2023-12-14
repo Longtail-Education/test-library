@@ -8,7 +8,7 @@ export class TestFunctions {
   async test1(): Promise<string> {
     try {
       const db = getFirestore();
-      const docRef = doc(db, "tests/test1");
+      const docRef = doc(db, "tests", "test1");
       await setDoc(docRef, { isTrue: true });
       return "test1: success writing document";
     } catch (error) {
@@ -20,7 +20,7 @@ export class TestFunctions {
   async test2(app: FirebaseApp): Promise<string> {
     try {
       const db = getFirestore(app);
-      const docRef = doc(db, "tests/test2");
+      const docRef = doc(db, "tests", "test2");
       await setDoc(docRef, { isTrue: true });
       return "test2: success writing document";
     } catch (error) {
@@ -31,7 +31,7 @@ export class TestFunctions {
 
   async test3(db: Firestore): Promise<string> {
     try {
-      const docRef = doc(db, "tests/test3");
+      const docRef = doc(db, "tests", "test3");
       await setDoc(docRef, { isTrue: true });
       return "test3: success writing document";
     } catch (error) {
