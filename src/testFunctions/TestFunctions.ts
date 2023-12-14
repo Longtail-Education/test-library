@@ -1,24 +1,78 @@
-import { App } from "firebase-admin/app";
-import { Firestore, getFirestore } from "firebase-admin/firestore";
+/* eslint-disable require-jsdoc */
+import { FirebaseApp } from "firebase/app";
+import { getFirestore, doc, setDoc, Firestore } from "firebase/firestore";
+import { getStorage, ref, getDownloadURL, FirebaseStorage } from "firebase/storage";
 
 export class TestFunctions {
-  async func1() {
-    const db = getFirestore();
-    const docRef = db.collection("card_templates").doc("FREN19-T01-001-03-EN-FREN002-001");
-    const cardTemplate = await docRef.get();
-    return cardTemplate;
+  // document writing tests
+  async test1(): Promise<string> {
+    try {
+      const db = getFirestore();
+      const docRef = doc(db, "tests/test1");
+      await setDoc(docRef, { isTrue: true });
+      return "test1: success writing document";
+    } catch (error) {
+      console.log(error);
+      return `test1 error: ${(error as Error).message}`;
+    }
   }
 
-  async func2(app: App) {
-    const db = getFirestore(app);
-    const docRef = db.collection("card_templates").doc("FREN19-T01-001-03-EN-FREN002-001");
-    const cardTemplate = await docRef.get();
-    return cardTemplate;
+  async test2(app: FirebaseApp): Promise<string> {
+    try {
+      const db = getFirestore(app);
+      const docRef = doc(db, "tests/test2");
+      await setDoc(docRef, { isTrue: true });
+      return "test2: success writing document";
+    } catch (error) {
+      console.log(error);
+      return `test2 error: ${(error as Error).message}`;
+    }
   }
 
-  async func3(db: Firestore) {
-    const docRef = db.collection("card_templates").doc("FREN19-T01-001-03-EN-FREN002-001");
-    const cardTemplate = await docRef.get();
-    return cardTemplate;
+  async test3(db: Firestore): Promise<string> {
+    try {
+      const docRef = doc(db, "tests/test3");
+      await setDoc(docRef, { isTrue: true });
+      return "test3: success writing document";
+    } catch (error) {
+      console.log(error);
+      return `test3 error: ${(error as Error).message}`;
+    }
+  }
+
+  // storage get download url tests
+  async test4(): Promise<string> {
+    try {
+      const storage = getStorage();
+      const fileRef = ref(storage, "images/test.png");
+      const url = await getDownloadURL(fileRef);
+      return `test4: success getting download url: ${url}`;
+    } catch (error) {
+      console.log(error);
+      return `test4 error: ${(error as Error).message}`;
+    }
+  }
+
+  async test5(app: FirebaseApp): Promise<string> {
+    try {
+      const storage = getStorage(app);
+      const fileRef = ref(storage, "images/test.png");
+      const url = await getDownloadURL(fileRef);
+      return `test5: success getting download url: ${url}`;
+    } catch (error) {
+      console.log(error);
+      return `test5 error: ${(error as Error).message}`;
+    }
+  }
+
+  async test6(storage: FirebaseStorage): Promise<string> {
+    try {
+      const fileRef = ref(storage, "images/test.png");
+      const url = await getDownloadURL(fileRef);
+      return `test6: success getting download url: ${url}`;
+    } catch (error) {
+      console.log(error);
+      return `test6 error: ${(error as Error).message}`;
+    }
   }
 }

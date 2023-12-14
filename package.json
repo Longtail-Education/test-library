@@ -10,9 +10,6 @@
   "engines": {
     "node": "16"
   },
-  "dependencies": {
-    "firebase-admin": "^12.0.0"
-  },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^6.13.2",
     "@typescript-eslint/parser": "^6.13.2",
@@ -40,5 +37,8 @@
   "bugs": {
     "url": "https://github.com/Longtail-Education/test-library/issues"
   },
-  "homepage": "https://github.com/Longtail-Education/test-library#readme"
+  "homepage": "https://github.com/Longtail-Education/test-library#readme",
+  "dependencies": {
+    "firebase": "^10.7.1"
+  }
 }
