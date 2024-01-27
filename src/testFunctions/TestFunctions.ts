@@ -82,10 +82,10 @@ export class TestFunctions {
       const storage = getStorage();
       const fileRef = ref(storage, `gs://${storage.app.options.storageBucket}/images/test.png`);
       const url = await getDownloadURL(fileRef);
-      return `test4: success getting download url: ${url}`;
+      return `test7: success getting download url: ${url}`;
     } catch (error) {
       console.log(error);
-      return `test4 error: ${(error as Error).message}`;
+      return `test7 error: ${(error as Error).message}`;
     }
   }
 
@@ -94,10 +94,10 @@ export class TestFunctions {
       const storage = getStorage(app);
       const fileRef = ref(storage, `gs://${storage.app.options.storageBucket}/images/test.png`);
       const url = await getDownloadURL(fileRef);
-      return `test5: success getting download url: ${url}`;
+      return `test8: success getting download url: ${url}`;
     } catch (error) {
       console.log(error);
-      return `test5 error: ${(error as Error).message}`;
+      return `test8 error: ${(error as Error).message}`;
     }
   }
 
@@ -105,10 +105,10 @@ export class TestFunctions {
     try {
       const fileRef = ref(storage, `gs://${storage.app.options.storageBucket}/images/test.png`);
       const url = await getDownloadURL(fileRef);
-      return `test6: success getting download url: ${url}`;
+      return `test9: success getting download url: ${url}`;
     } catch (error) {
       console.log(error);
-      return `test6 error: ${(error as Error).message}`;
+      return `test9 error: ${(error as Error).message}`;
     }
   }
 }
