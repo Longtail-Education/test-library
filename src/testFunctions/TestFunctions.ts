@@ -40,7 +40,7 @@ export class TestFunctions {
     }
   }
 
-  // storage get download url tests
+  // storage get download url tests using relative path
   async test4(): Promise<string> {
     try {
       const storage = getStorage();
@@ -68,6 +68,42 @@ export class TestFunctions {
   async test6(storage: FirebaseStorage): Promise<string> {
     try {
       const fileRef = ref(storage, "images/test.png");
+      const url = await getDownloadURL(fileRef);
+      return `test6: success getting download url: ${url}`;
+    } catch (error) {
+      console.log(error);
+      return `test6 error: ${(error as Error).message}`;
+    }
+  }
+
+  // storage get download url tests using gs path
+  async test7(): Promise<string> {
+    try {
+      const storage = getStorage();
+      const fileRef = ref(storage, `gs://${storage.app.options.storageBucket}/images/test.png`);
+      const url = await getDownloadURL(fileRef);
+      return `test4: success getting download url: ${url}`;
+    } catch (error) {
+      console.log(error);
+      return `test4 error: ${(error as Error).message}`;
+    }
+  }
+
+  async test8(app: FirebaseApp): Promise<string> {
+    try {
+      const storage = getStorage(app);
+      const fileRef = ref(storage, `gs://${storage.app.options.storageBucket}/images/test.png`);
+      const url = await getDownloadURL(fileRef);
+      return `test5: success getting download url: ${url}`;
+    } catch (error) {
+      console.log(error);
+      return `test5 error: ${(error as Error).message}`;
+    }
+  }
+
+  async test9(storage: FirebaseStorage): Promise<string> {
+    try {
+      const fileRef = ref(storage, `gs://${storage.app.options.storageBucket}/images/test.png`);
       const url = await getDownloadURL(fileRef);
       return `test6: success getting download url: ${url}`;
     } catch (error) {
